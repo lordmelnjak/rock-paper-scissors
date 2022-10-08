@@ -1,6 +1,6 @@
 
-let computerSelection = getComputerChoice()  //pozivam funkciju getComputerChoice na random generiranje
-let playerSelection = 'Rock';
+const computerSelection = getComputerChoice()  //pozivam funkciju getComputerChoice na random generiranje
+const playerSelection = 'Rock';
 function getComputerChoice (){
     let choices = ['Rock','Paper','Scissors'];
     return choices[Math.floor(Math.random() * choices.length)]; //vracam izbor racunala
@@ -29,3 +29,5 @@ function playRound (playerSelection, computerSelection) {
     }
     return result;
 }
+
+console.log(playRound(playerSelection, computerSelection));
