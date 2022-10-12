@@ -1,28 +1,36 @@
 
-const computerSelection = getComputerChoice()  //pozivam funkciju getComputerChoice na random generiranje
-const playerSelection = 'Rock';
+const computerSelection = getComputerChoice();  //pozivam funkciju getComputerChoice na random generiranje
 function getComputerChoice (){
     let choices = ['Rock','Paper','Scissors'];
     return choices[Math.floor(Math.random() * choices.length)]; //vracam izbor racunala
 }
 
+function game () {  
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt('What is your choice?').toLowerCase();
+        getComputerChoice();
+        playRound();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
 function playRound (playerSelection, computerSelection) {
     let result;
-    if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+    if (playerSelection == 'rock' && computerSelection == 'Scissors') {
         result = 'You win! Rock beats scissors!';
-    } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+    } else if (playerSelection == 'rock' && computerSelection == 'Paper') {
         result = 'You loose! Paper beats rock!';
-    } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
+    } else if (playerSelection == 'scissors' && computerSelection == 'Paper') {
         result = 'You win! Scissors beat paper!';
-    } else if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
+    } else if (playerSelection == 'scissors' && computerSelection == 'Rock') {
         result = 'You loose! Rock beats Scissors!';
-    } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+    } else if (playerSelection == 'paper' && computerSelection == 'Rock') {
         result = 'You win! Paper beats rock!';
-    } else if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
+    } else if (playerSelection == 'paper' && computerSelection == 'Scissors') {
         result = 'You loose! Scissors beat paper!';
-    } else if (playerSelection == 'Rock' && computerSelection == 'Rock') {
+    } else if (playerSelection == 'rock' && computerSelection == 'Rock') {
         result = 'Tie';
-    } else if (playerSelection == 'Paper' && computerSelection == 'Paper') {
+    } else if (playerSelection == 'paper' && computerSelection == 'Paper') {
         result = 'Tie';
     } else {
         result = 'Tie';
@@ -30,4 +38,5 @@ function playRound (playerSelection, computerSelection) {
     return result;
 }
 
-console.log(playRound(playerSelection, computerSelection));
+game();
+
