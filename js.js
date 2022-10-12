@@ -8,6 +8,7 @@ function getComputerChoice (){
 function game () {  
     for (let i = 0; i < 5; i++) {
         const playerSelection = prompt('What is your choice?').toLowerCase();
+        const computerSelection = getComputerChoice();  //pozivam funkciju getComputerChoice na random generiranje
         getComputerChoice();
         playRound();
         console.log(playRound(playerSelection, computerSelection));
@@ -29,11 +30,11 @@ function playRound (playerSelection, computerSelection) {
     } else if (playerSelection == 'paper' && computerSelection == 'Scissors') {
         result = 'You loose! Scissors beat paper!';
     } else if (playerSelection == 'rock' && computerSelection == 'Rock') {
-        result = 'Tie';
+        result = 'Tie, both selected rock!';
     } else if (playerSelection == 'paper' && computerSelection == 'Paper') {
-        result = 'Tie';
+        result = 'Tie, both selected paper!';
     } else {
-        result = 'Tie';
+        result = 'Tie, both selected scissors!';
     }
     return result;
 }
